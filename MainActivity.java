@@ -33,14 +33,14 @@ public class MainActivity extends Activity {
         for (i = 1; i <= 100; i++) {
 
             try {
-                Thread.sleep(4000);//Turn ON
+                Thread.sleep(40);//Turn ON
                 flasLight();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             try {
 
-                Thread.sleep(8000);//Turn ON
+                Thread.sleep(80);//Turn ON
                 flasLoff();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -83,7 +83,7 @@ public class MainActivity extends Activity {
 
 
                 camManager.setTorchMode(cameraId, false);
-                Thread.sleep(8000);//Turn ON//Turn ON
+                Thread.sleep(80);//Turn ON//Turn ON
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {

@@ -24,23 +24,23 @@ import java.util.TimerTask;
 
 public class MainActivity extends Activity {
     int i =1;
-    int z= 100;
+    int z= 1000;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        for (i = 1; i <= 100; i++) {
+        for (i = 1; i <= 1000; i++) {
 
             try {
-                Thread.sleep(40);//Turn ON
+                Thread.sleep(200);//Turn ON
                 flasLight();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             try {
 
-                Thread.sleep(80);//Turn ON
+                Thread.sleep(200);//Turn ON
                 flasLoff();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -62,6 +62,8 @@ public class MainActivity extends Activity {
 
 
                 camManager.setTorchMode(cameraId, true);
+                MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.beep);
+                ring.start();
 
             } catch (CameraAccessException e) {
                 e.printStackTrace();

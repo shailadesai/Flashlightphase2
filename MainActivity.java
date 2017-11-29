@@ -23,88 +23,18 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends Activity {
-    int i =1;
-    int z= 1000;
+    int i = 1;
+    int z = 1000;
+    private flashlight Flashlight;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        for (i = 1; i <= 1000; i++) {
-
-            try {
-                Thread.sleep(200);//Turn ON
-                flasLight();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            try {
-
-                Thread.sleep(200);//Turn ON
-                flasLoff();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
-
-    public void flasLight() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-            String cameraId = null; // Usually back camera is at 0 position.
-            try {
-                try {
-                    cameraId = camManager.getCameraIdList()[0];
-                } catch (CameraAccessException e) {
-                    e.printStackTrace();
-                }
-
-
-                camManager.setTorchMode(cameraId, true);
-                MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.beep);
-                ring.start();
-
-            } catch (CameraAccessException e) {
-                e.printStackTrace();
-            }
-
-
-        }
-    }
-    public void flasLoff() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-            String cameraId = null; // Usually back camera is at 0 position.
-            try {
-                try {
-                    cameraId = camManager.getCameraIdList()[0];
-                } catch (CameraAccessException e) {
-                    e.printStackTrace();
-                }
-
-
-                camManager.setTorchMode(cameraId, false);
-                Thread.sleep(80);//Turn ON//Turn ON
-            } catch (CameraAccessException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-
-        }
-
-
+        Flashlight = new flashlight(this);
+        Flashlight.blink();
     }
 
 }
-
-
-
-
-
-
-
 
 
